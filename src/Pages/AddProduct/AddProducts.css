@@ -1,0 +1,16 @@
+.form-div form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-div form input {
+    margin-top: 10px;
+    width: 40%;
+}
+
+.form-div form textarea {
+    margin-top: 10px;
+    width: 40%;
+}
