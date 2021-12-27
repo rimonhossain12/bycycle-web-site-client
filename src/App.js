@@ -4,6 +4,8 @@ import Home from './Pages/Home/Home/Home';
 import About from './Pages/Home/About/About';
 import AddProduct from './Pages/AddProduct/AddProduct';
 import AllProducts from './Pages/AllProducts/AllProducts';
+import Login from './Pages/Shared/Login/Login/Login';
+import Register from './Pages/Shared/Register/Register';
 
 function App() {
   return (
@@ -24,6 +26,12 @@ function App() {
           </Route>
           <Route path="/loadAllProducts">
             <AllProducts />
+          </Route>
+          <Route path="/login">
+            <Login/>
+          </Route>
+          <Route path="/register">
+            <Register/>
           </Route>
         </Switch>
       </Router>

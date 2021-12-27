@@ -1,0 +1,8 @@
+.form-style form{
+    display: flex;
+    flex-direction: column;
+}
+.form-style form input {
+    margin-bottom: 10px;
+    width: 80%;
+}
