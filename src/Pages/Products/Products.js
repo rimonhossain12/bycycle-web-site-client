@@ -19,7 +19,7 @@ const Products = () => {
             <div className='mt-5'>
 
                 <h4 className='text-center text-capitalize fw-bold mb-5 pb-5' style={{ color: '#99A3A4' }}>
-                    <Zoom right cascade>
+                    <Zoom bottom cascade>
                         Wonderful BiCycle Collection in the world
                     </Zoom>
                 </h4>

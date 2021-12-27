@@ -16,7 +16,7 @@ const LoadProducts = ({ product }) => {
                         <h6 className="fw-normal" style={{ color: '#05445D' }}>${price}</h6>
                         <p className='fw-normal text-center'>{description}</p>
                     </div>
-                    <button className='btn btn-primary'>shop Now</button>
+                    <button className=' btn-style btn btn-primary badge rounded-pill bg-primary"'>shop Now</button>
                 </div>
             </div> 
         </div>
