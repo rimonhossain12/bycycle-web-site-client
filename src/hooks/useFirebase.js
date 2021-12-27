@@ -16,10 +16,14 @@ const useFirebase = () => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const user = userCredential.user;
-                console.log('successfully', user);
-                const updateUser = { email: email, displayName: name };
-                setUser(updateUser);
+                const newUser = { email: email, displayName: name };
+                saveUser(email, name, 'POST');
+                setUser(newUser);
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
+                }).catch((error) => {
+                });
                 history.push('/');
             })
             .catch((error) => {
@@ -68,7 +72,25 @@ const useFirebase = () => {
         })
     }, [auth]);
 
+    // save user to the database
+    const saveUser = (email, displayName, method) => {
+        const { user } = { email, displayName }
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if(data.insertedId){
+                    alert('user added successfully');
+                }
+                console.log(data);
+            })
 
+    }
     return {
         registerUser,
         user,
