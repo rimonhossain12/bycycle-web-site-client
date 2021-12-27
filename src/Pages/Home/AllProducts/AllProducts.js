@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import Banner from '../Home/Banner/Banner';
-import Footer from '../Shared/Footer/Footer';
 import Zoom from 'react-reveal/Zoom';
 import { Row } from 'react-bootstrap';
 import LoadAllProducts from '../LoadAllProducts/LoadAllProducts';
+import Footer from '../../Shared/Footer/Footer';
+import Banner from '../Banner/Banner';
 
 
 const AllProducts = () => {

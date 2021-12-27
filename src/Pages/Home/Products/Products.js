@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
 import Zoom from 'react-reveal/Zoom';
 import { Link } from 'react-router-dom';
-import LoadProducts from '../Home/LoadProducts/LoadProducts';
+import LoadProducts from '../LoadProducts/LoadProducts';
 
 
 
@@ -30,7 +30,7 @@ const Products = () => {
                     <div className='container'>
                         <Row xs={1} md={2} lg={3} className="g-4">
                             {
-                                products.map(product => <LoadProducts key={product._id}
+                            products.map(product => <LoadProducts key={product._id}
                                     product={product}
                                 ></LoadProducts>)
                             }

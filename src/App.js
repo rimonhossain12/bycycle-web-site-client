@@ -2,10 +2,11 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './Pages/Home/Home/Home';
 import About from './Pages/Home/About/About';
-import AddProduct from './Pages/AddProduct/AddProduct';
-import AllProducts from './Pages/AllProducts/AllProducts';
-import Login from './Pages/Shared/Login/Login/Login';
-import Register from './Pages/Shared/Register/Register';
+import AddProduct from './Pages/Home/AddProduct/AddProduct';
+import AllProducts from './Pages/Home/AllProducts/AllProducts';
+import Login from './Pages/Login/Login/Login/Login';
+import Register from './Pages/Login/Register/Register';
+
 
 function App() {
   return (
