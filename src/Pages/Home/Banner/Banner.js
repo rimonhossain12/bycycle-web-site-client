@@ -26,6 +26,7 @@ const Banner = () => {
                         <Nav className="ms-auto">
                             <Nav.Link as={HashLink} to="/home#home" className='nav-style'>Home</Nav.Link>
                             <Nav.Link as={HashLink} to="/loadAllProducts#loadAllProducts" className='nav-style'>Products</Nav.Link>
+                            {user.email && <Nav.Link  className='nav-style'>{user.displayName}</Nav.Link> }
                             <NavDropdown title="DASHBOARD" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

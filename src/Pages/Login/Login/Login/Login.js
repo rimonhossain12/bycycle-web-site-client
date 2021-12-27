@@ -39,14 +39,17 @@ const Login = () => {
                             name="email"
                             onBlur={handleOnBlur}
                             placeholder='Enter your email'
+                            defaultValue='Enter your email'
                         />
                         <input
                             className='form-control'
                             type="password"
                             name="password"
                             onBlur={handleOnBlur}
-                            placeholder='Enter your password' />
-                        <input className="btn btn-primary btn-style" type="submit" value="Login" />
+                            placeholder='Enter your password' 
+                            defaultValue="Enter your password"
+                            />
+                        <input className="btn btn-primary btn-style" type="Submit" value="Login" />
                     </form>
                     <Link to="/register" className='text-decoration-none cursive'>
                         <span className='fw-bold text-info me-5'>New User? Please Register</span>
