@@ -19,7 +19,7 @@ const Navigation = () => {
                             <h3>Travelling Hill Cycle</h3>
                             <p>One of the most beautiful and comfortable travelling BiCycle.</p>
                         </Zoom>
-                        </Carousel.Caption>
+                    </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
@@ -30,22 +30,8 @@ const Navigation = () => {
 
                     <Carousel.Caption>
                         <Zoom cascade>
-                        <h3>Best Road Travelling Cycle</h3>
-                        <p>One of the fast running Cycle On the road.</p>
-                        </Zoom>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src={img1}
-                        alt="Second slide"
-                    />
-
-                    <Carousel.Caption>
-                        <Zoom cascade>
-                            <h3>Travelling Hill Cycle</h3>
-                            <p>One of the most beautiful and comfortable travelling BiCycle.</p>
+                            <h3>Best Road Travelling Cycle</h3>
+                            <p>One of the fast running Cycle On the road.</p>
                         </Zoom>
                     </Carousel.Caption>
                 </Carousel.Item>
