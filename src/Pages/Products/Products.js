@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
 import Zoom from 'react-reveal/Zoom';
+import { Link } from 'react-router-dom';
 import LoadProducts from '../Home/LoadProducts/LoadProducts';
 
 
@@ -34,7 +35,9 @@ const Products = () => {
                                 ></LoadProducts>)
                             }
                         </Row>
+                    <Link to="/loadAllProducts">
                         <button style={{ width: '20%' }} className="mb-3 p-3 btn-style btn btn-primary badge rounded-pill bg-primary fw-bold">Explore</button>
+                        </Link>
                     </div>
                 {/* </Zoom> */}
             </div>
