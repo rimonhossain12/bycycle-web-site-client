@@ -3,9 +3,11 @@ import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { HashLink } from 'react-router-hash-link';
 import './Banner.css';
 import topBanner from '../../../images/carousel/top-banner.png';
+import useAuth from '../../../hooks/useAuth';
 
 
 const Banner = () => {
+    const { user, logout } = useAuth();
     return (
         <div>
             <Navbar bg="dark" expand="lg" variant="dark">
@@ -18,7 +20,7 @@ const Banner = () => {
                             height="30"
                             className="d-inline-block align-top"
                         />{' '}
-                      </Navbar.Brand>
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
@@ -31,6 +33,11 @@ const Banner = () => {
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                             </NavDropdown>
+                            {user.email ? <button onClick={logout} className='btn btn-primary badge rounded-pill bg-primary btn-style'>LogOut</button> :
+
+                                <Nav.Link as={HashLink} to="/login#login" className='nav-style'>
+                                    <button onClick={logout} className='btn btn-primary badge rounded-pill bg-primary btn-style'>Login</button>
+                                </Nav.Link>}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

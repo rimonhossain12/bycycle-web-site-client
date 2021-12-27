@@ -1,25 +1,31 @@
 import React from 'react';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import './Register.css';
 
 const Register = () => {
-    const [data, setData] = useState({});
+    const [registerData, setRegisterData] = useState({});
+    const {registerUser} = useAuth();
 
+    const history = useHistory();
+    
     const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
-        const newData = { ...data };
+        const newData = { ...registerData };
         newData[field] = value;
-        setData(newData);
+        setRegisterData(newData);
         e.preventDefault();
     }
 
     const handleRegistrationSubmit = e => {
-        if(data.password !== data.password2){
+        if(registerData.password !== registerData.password2){
             alert(`password didn't matched`);
             return;
         }
+        registerUser(registerData.email, registerData.password, history);
         e.preventDefault();
     }
 
