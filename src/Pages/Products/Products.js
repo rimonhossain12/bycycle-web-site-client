@@ -17,7 +17,6 @@ const Products = () => {
     return (
         <div>
             <div className='mt-5'>
-
                 <h4 className='text-center text-capitalize fw-bold mb-5 pb-5' style={{ color: '#99A3A4' }}>
                     <Zoom bottom cascade>
                         Wonderful BiCycle Collection in the world
@@ -26,15 +25,18 @@ const Products = () => {
 
             </div>
             <div style={{ backgroundColor: '#D6DBDF' }}>
-                <div className='container'>
-                    <Row xs={1} md={2} lg={3} className="g-4">
-                        {
-                            products.map(product => <LoadProducts key={product._id}
-                                product={product}
-                            ></LoadProducts>)
-                        }
-                    </Row>
-                </div>
+                {/* <Zoom bottom cascade> */}
+                    <div className='container'>
+                        <Row xs={1} md={2} lg={3} className="g-4">
+                            {
+                                products.map(product => <LoadProducts key={product._id}
+                                    product={product}
+                                ></LoadProducts>)
+                            }
+                        </Row>
+                        <button style={{ width: '20%' }} className="mb-3 p-3 btn-style btn btn-primary badge rounded-pill bg-primary fw-bold">Explore</button>
+                    </div>
+                {/* </Zoom> */}
             </div>
         </div>
 
