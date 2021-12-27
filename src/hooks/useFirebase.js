@@ -27,6 +27,22 @@ const useFirebase = () => {
             }).finally(() => setIsLoading(false));
     }
     // sing In with email and password
+    const signInWithEmailPassword = (email,password,location,history) => {
+        setIsLoading(true)
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                setUser(user);
+                setAuthError('');
+                const destination = location?.state?.from || '/';
+                history.push(destination);
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setAuthError(errorMessage);
+            }).finally(() => setIsLoading(false));
+    }
 
     // log out
     const logout = () => {
@@ -55,6 +71,7 @@ const useFirebase = () => {
     return {
         registerUser,
         user,
+        signInWithEmailPassword,
         logout,
         isLoading,
         authError

@@ -3,20 +3,27 @@ import { Row } from 'react-bootstrap';
 import './Login.css';
 import loginImg from '../../../../images/login/login.png';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../../hooks/useAuth';
+import { useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
-    const [data, setData] = useState({});
+    const [loginData, setLoginData] = useState({});
+    const { signInWithEmailPassword } = useAuth();
+    const location = useLocation();
+    const history = useHistory();
 
     const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
-        const newData = { ...data };
+        const newData = { ...loginData };
         newData[field] = value;
-        setData(newData);
+        setLoginData(newData);
         e.preventDefault();
     }
     const handleRegistrationSubmit = e => {
-        console.log(data);
+        console.log('email and password', loginData);
+        signInWithEmailPassword(loginData.email, loginData.password, location, history);
         e.preventDefault();
     }
 
