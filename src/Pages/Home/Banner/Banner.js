@@ -35,15 +35,17 @@ const Banner = () => {
                             </Nav.Link>
 
                             {user.email && <Nav.Link className='nav-style'>
-                                <span className='' style={{ color: 'white' }}>
-                                    loginUser {user.displayName}
+                                <span className='' style={{ color: 'red' }}>
+                                    loginUser:{user.displayName}
                                 </span>
                             </Nav.Link>}
 
-                            {user.email ? <button onClick={logout} className='btn btn-primary badge rounded-pill bg-primary btn-style'>LogOut</button> :
+                            {user.email ? <Nav.Link className='nav-style'>
+                                <button onClick={logout} className='btn btn-primary badge rounded-pill bg-primary btn-style'>Logout</button>
+                            </Nav.Link>:
 
                                 <Nav.Link as={HashLink} to="/login#login" className='nav-style'>
-                                    <button onClick={logout} className='btn btn-primary badge rounded-pill bg-primary btn-style'>Login</button>
+                                    <button className='btn btn-primary badge rounded-pill bg-primary btn-style'>Login</button>
                                 </Nav.Link>}
                         </Nav>
                     </Navbar.Collapse>
