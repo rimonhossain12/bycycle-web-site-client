@@ -24,8 +24,6 @@ const Login = () => {
     }
     const handleRegistrationSubmit = e => {
         signInWithEmailPassword(loginData.email, loginData.password, location, history);
-        loginData.email = ' ';
-        loginData.password = ' ';
         e.preventDefault();
     }
 
@@ -56,7 +54,7 @@ const Login = () => {
                                     placeholder='Enter your password'
                                     defaultValue="Enter your password"
                                 />
-                                <input className="btn btn-primary btn-style" type="Submit" value="Login"/>
+                                <input className="btn btn-primary btn-style" type="submit" value="Login"/>
                             </form>
                             <Link to="/register" className='text-decoration-none cursive'>
                                 <span className='fw-bold text-info me-5'>New User? Please Register</span>
