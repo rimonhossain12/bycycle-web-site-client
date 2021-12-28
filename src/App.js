@@ -39,8 +39,8 @@ function App() {
             <Route path="/register">
               <Register />
             </Route>
-            <Route path="/order/:id">
-              <PlaceOrder/>
+            <Route path="/order/:productId">
+              <PlaceOrder />
             </Route>
           </Switch>
         </Router>

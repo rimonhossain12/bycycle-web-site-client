@@ -20,7 +20,7 @@ const LoadProducts = ({ product }) => {
                                 <h6 className="fw-normal" style={{ color: '#05445D' }}>${price}</h6>
                                 <p className='fw-normal text-center'>{description}</p>
                             </div>
-                            <Link to={`/order/${product._id}`}>
+                            <Link to={`/order/${_id}`}>
                                 <button className="btn-style btn btn-primary badge rounded-pill bg-primary">shop Now</button>
                             </Link>
                           

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Zoom } from 'react-reveal';
+import { Link } from 'react-router-dom';
 
 
 const LoadAllProducts = ({ product }) => {
-    const { name, img, price, description } = product;
-
+    const { name, img, price, description,_id } = product;
 
     return (
         <Zoom cascade>
@@ -19,7 +19,9 @@ const LoadAllProducts = ({ product }) => {
                             <h6 className="fw-normal" style={{ color: '#05445D' }}>${price}</h6>
                             <p className='fw-normal text-center'>{description}</p>
                         </div>
-                        <button className="btn-style btn btn-primary badge rounded-pill bg-primary">shop Now</button>
+                        <Link to={`/order/${_id}`}>
+                            <button className="btn-style btn btn-primary badge rounded-pill bg-primary">shop Now</button>
+                        </Link>    
                     </div>
                 </div>
             </div>

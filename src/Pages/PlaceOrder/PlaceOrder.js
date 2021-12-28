@@ -1,24 +1,81 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { Link, useParams } from 'react-router-dom';
 import Banner from '../Home/Banner/Banner';
+import { useForm } from "react-hook-form";
+import './PlaceOrder.css';
+import useAuth from '../../hooks/useAuth';
 
 const PlaceOrder = () => {
+    const [singleProduct, setSingleProduct] = useState([]);
+    const { user } = useAuth();
+    const { productId } = useParams();
+    const { register, handleSubmit,reset } = useForm();
+    useEffect(() => {
+        fetch(`http://localhost:5000/products/${productId}`)
+            .then(res => res.json())
+            .then(data => setSingleProduct(data));
+    }, [productId]);
+
+    const onSubmit = data => {
+        fetch('http://localhost:5000/orders',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.insertedId){
+               alert('order added successfully');             
+               reset();
+           }
+        })
+        console.log(data)
+    };
+
     return (
         <div>
-            <Banner/>
-           <div className='my-5'>
-                <h2 className='fw-lighter'>This is Place order</h2>
+            <Banner />
+            <div className='my-5'>
+                <h2 className='fw-lighter'>This is PlaceOrder Page</h2>
                 <div className='my-5 container'>
                     <Row xs={1} md={2} className="g-4">
+                        <div className='mt-5'>
+                            <div className="shadow p-3 mb-5 bg-body rounded mx-auto" style={{ width: '75%' }}>
+                                <div className="image">
+                                    <div id="zoom-In">
+                                        <figure>
+                                            <img id="img-style" src={singleProduct.img} className='img-fluid' style={{ width: '50%' }} alt="" />
+                                        </figure>
+                                        <h5 className="fw-lighter" style={{ color: '#22789A' }}>{singleProduct.name}</h5>
+                                        <h6 className="fw-normal" style={{ color: '#05445D' }}>${singleProduct.price}</h6>
+                                        <p className='fw-normal text-center'>{singleProduct.description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <Col>
-                           <h4 className='fw-light'>See your order</h4>
-                        </Col>
-                        <Col>
-                            <h4 className='fw-light'>Please full fill the information</h4>
+                            <h4 className='fw-light mb-3 text-center'>Please full fill the information</h4>
+                            <div className='order-div'>
+                                <form onSubmit={handleSubmit(onSubmit)}>
+                                    <input {...register("email")} defaultValue={user.email} />
+                                    <input {...register("userName")} defaultValue={user.displayName} />
+                                    <input {...register("productName")} defaultValue={singleProduct.name} />
+                                    <input {...register("price")} defaultValue={singleProduct.price} />
+                                    <input {...register("img")} defaultValue={singleProduct.img} />
+                                    <input {...register("location")} placeholder='your address' />
+                                    <input {...register("phone")} placeholder='your phone number' />
+                                    <input type="submit" value='submit' />
+                                </form>
+                            </div>
                         </Col>
                     </Row>
                 </div>
-           </div>
+            </div>
         </div>
     );
 };
