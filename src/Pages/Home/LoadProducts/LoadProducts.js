@@ -1,9 +1,10 @@
 import React from 'react';
 import './LoadProducts.css';
 import Zoom from 'react-reveal/Zoom';
+import { Link } from 'react-router-dom';
 
 const LoadProducts = ({ product }) => {
-    const { name, img, price, description } = product;
+    const { name, img, price, description,_id } = product;
 
     return (
         <>
@@ -19,7 +20,10 @@ const LoadProducts = ({ product }) => {
                                 <h6 className="fw-normal" style={{ color: '#05445D' }}>${price}</h6>
                                 <p className='fw-normal text-center'>{description}</p>
                             </div>
-                            <button className="btn-style btn btn-primary badge rounded-pill bg-primary">shop Now</button>
+                            <Link to={`/order/${product._id}`}>
+                                <button className="btn-style btn btn-primary badge rounded-pill bg-primary">shop Now</button>
+                            </Link>
+                          
                         </div>
                     </div>
                 </div>

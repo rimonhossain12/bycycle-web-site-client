@@ -1,11 +1,12 @@
 import React from 'react';
 import { Zoom } from 'react-reveal';
 
-const LoadAllProducts = ({product}) => {
+
+const LoadAllProducts = ({ product }) => {
     const { name, img, price, description } = product;
 
-    return (
 
+    return (
         <Zoom cascade>
             <div className='mt-5'>
                 <div className="shadow p-3 mb-5 bg-body rounded div-height">

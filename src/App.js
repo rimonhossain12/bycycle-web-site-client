@@ -7,6 +7,8 @@ import AllProducts from './Pages/Home/AllProducts/AllProducts';
 import Login from './Pages/Login/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import AuthProvider from './Contexts/AuthProvider/AuthProvider';
+import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
+
 
 
 
@@ -36,6 +38,9 @@ function App() {
             </Route>
             <Route path="/register">
               <Register />
+            </Route>
+            <Route path="/order/:id">
+              <PlaceOrder/>
             </Route>
           </Switch>
         </Router>
