@@ -8,6 +8,7 @@ import Login from './Pages/Login/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 
 
 
@@ -39,9 +40,9 @@ function App() {
             <Route path="/register">
               <Register />
             </Route>
-            <Route path="/order/:productId">
+            <PrivateRoute path="/order/:productId">
               <PlaceOrder />
-            </Route>
+            </PrivateRoute>
           </Switch>
         </Router>
       </AuthProvider>

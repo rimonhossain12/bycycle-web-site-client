@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Banner from '../Home/Banner/Banner';
 import { useForm } from "react-hook-form";
 import './PlaceOrder.css';
@@ -12,7 +12,7 @@ const PlaceOrder = () => {
     const [singleProduct, setSingleProduct] = useState([]);
     const { user } = useAuth();
     const { productId } = useParams();
-    const { register, handleSubmit,reset } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     useEffect(() => {
         fetch(`http://localhost:5000/products/${productId}`)
             .then(res => res.json())
@@ -20,20 +20,20 @@ const PlaceOrder = () => {
     }, [productId]);
 
     const onSubmit = data => {
-        fetch('http://localhost:5000/orders',{
-            method:'POST',
-            headers:{
-                'content-type':'application/json'
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
             },
-            body:JSON.stringify(data)
+            body: JSON.stringify(data)
         })
-        .then(res => res.json())
-        .then(data => {
-            if (data.insertedId){
-               alert('order added successfully');             
-               reset();
-           }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    alert('order added successfully');
+                    reset();
+                }
+            })
         console.log(data)
     };
 
