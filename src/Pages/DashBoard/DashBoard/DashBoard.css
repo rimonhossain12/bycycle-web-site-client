@@ -11,7 +11,7 @@
 
 .link-div {
     border-right: 1px solid #CCD1D1;
-    height: 90vh;
+    height: 100vh;
 }
 
 .link-div * {
@@ -28,16 +28,39 @@ ul {
 
 ul li {
     margin-bottom: 10px;
-    text-decoration: none;
-    font-family: 'Questrial',
-        sans-serif;
-    font-weight: bold;
+     text-decoration: none;
+     font-family: 'Questrial',
+     sans-serif;
+       font-weight: bold; 
 }
 
 ul li .list-style {
     text-decoration: none;
-    font-family: 'Questrial',
-        sans-serif;
-    font-weight: bold;
-    column-rule: rgba(205, 92, 92, 0.151);
+       font-family: 'Questrial',
+       sans-serif;
+       font-weight: bold;
+       column-rule: rgba(205, 92, 92, 0.151);
+}
+
+@media only screen and (max-width: 600px) {
+    .profile-main {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .profile-div {
+        margin-top: 0px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+   .dashboard-link {
+       height: 250px
+   }
+}
+
+@media only screen and (max-width: 600px) {
+    .dashboard-link {
+        height: 250px
+    }
 }

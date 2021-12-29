@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Row, Spinner } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import './Login.css';
 import loginImg from '../../../../images/login/login.png';
 import { Link } from 'react-router-dom';
@@ -30,9 +30,11 @@ const Login = () => {
 
     return (
         <>
-            {isLoading && <Spinner animation="border" role="status">
-                <span className="visually-hidden">Loading...</span>
-            </Spinner>}
+            {isLoading && 
+                <div class="spinner-border" style={{ width: "6rem", height: "6rem", role: 'status' }}>
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            }
             {!isLoading &&
                 <div className='container my-5'>
                     <Row xs={1} md={2} lg={2} className="g-2" >

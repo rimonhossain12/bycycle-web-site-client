@@ -2,7 +2,6 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './Pages/Home/Home/Home';
 import About from './Pages/Home/About/About';
-import AddProduct from './Pages/Home/AddProduct/AddProduct';
 import AllProducts from './Pages/Home/AllProducts/AllProducts';
 import Login from './Pages/Login/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
@@ -10,6 +9,7 @@ import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import DashBoard from './Pages/DashBoard/DashBoard/DashBoard';
+import AddProduct from './Pages/DashBoard/AddProduct/AddProduct';
 
 
 
