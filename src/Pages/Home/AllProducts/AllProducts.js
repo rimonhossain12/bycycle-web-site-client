@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Zoom from 'react-reveal/Zoom';
-import { Row, Spinner } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import LoadAllProducts from '../LoadAllProducts/LoadAllProducts';
 import Footer from '../../Shared/Footer/Footer';
 import Banner from '../Banner/Banner';
@@ -18,7 +18,9 @@ const AllProducts = () => {
     }, [])
     return (
         <>
-            {isLoading && <Spinner animation="border" />}
+            {isLoading && <div class="spinner-border" style={{ width: "6rem", height: "6rem", role: 'status' }}>
+                <span class="visually-hidden">Loading...</span>
+            </div>}
             {!isLoading &&
                 <div>
                     <Banner />

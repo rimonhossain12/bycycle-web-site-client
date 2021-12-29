@@ -1,13 +1,14 @@
 import React from 'react';
 import { Zoom } from 'react-reveal';
 import { Link } from 'react-router-dom';
-import useAuth from '../../../hooks/useAuth';
+
 
 
 const LoadAllProducts = ({ product }) => {
     const { name, img, price, description, _id } = product;
+
     return (
-        <Zoom cascade>
+    <Zoom cascade>
             <div className='mt-5'>
                 <div className="shadow p-3 mb-5 bg-body rounded div-height">
                     <div className="image">
