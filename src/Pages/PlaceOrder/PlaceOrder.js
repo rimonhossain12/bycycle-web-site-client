@@ -12,7 +12,7 @@ const PlaceOrder = () => {
     const [singleProduct, setSingleProduct] = useState([]);
     const { user } = useAuth();
     const { productId } = useParams();
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit,reset } = useForm();
     useEffect(() => {
         fetch(`http://localhost:5000/products/${productId}`)
             .then(res => res.json())
@@ -20,6 +20,7 @@ const PlaceOrder = () => {
     }, [productId]);
 
     const onSubmit = data => {
+        console.log(data);
         fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {
@@ -34,8 +35,8 @@ const PlaceOrder = () => {
                     reset();
                 }
             })
-        console.log(data)
     };
+
 
     return (
         <div>
@@ -54,6 +55,7 @@ const PlaceOrder = () => {
                                         <h5 className="fw-lighter" style={{ color: '#22789A' }}>{singleProduct.name}</h5>
                                         <h6 className="fw-normal" style={{ color: '#05445D' }}>${singleProduct.price}</h6>
                                         <p className='fw-normal text-center'>{singleProduct.description}</p>
+                                        <span>{singleProduct.img}</span>
                                     </div>
                                 </div>
                             </div>
@@ -62,11 +64,11 @@ const PlaceOrder = () => {
                             <h4 className='fw-light mb-3 text-center'>Please full fill the information</h4>
                             <div className='order-div'>
                                 <form onSubmit={handleSubmit(onSubmit)}>
-                                    <input {...register("email")} defaultValue={user.email} />
-                                    <input {...register("userName")} defaultValue={user.displayName} />
-                                    <input {...register("productName")} defaultValue={singleProduct.name} />
-                                    <input {...register("price")} defaultValue={singleProduct.price} />
-                                    <input {...register("img")} defaultValue={singleProduct.img} />
+                                    <input {...register("email")} value={user.email} />
+                                    <input {...register("userName")} value={user.displayName} />
+                                    <input {...register("productName")} placeholder='product Name' />
+                                    <input {...register("price")} placeholder='product price' />
+                                    <input {...register("img")} placeholder='img url' />
                                     <input {...register("location")} placeholder='your address' />
                                     <input {...register("phone")} placeholder='your phone number' />
                                     <input type="submit" value='submit' />

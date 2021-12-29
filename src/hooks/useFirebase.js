@@ -85,9 +85,9 @@ const useFirebase = () => {
             .then(res => res.json())
             .then(data => {
                 if(data.insertedId){
-                    alert('user added successfully');
+                    // alert('user added successfully');
                 }
-                console.log(data);
+                // console.log(data);
             })
 
     }

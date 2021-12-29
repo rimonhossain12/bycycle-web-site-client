@@ -9,8 +9,8 @@ import { useHistory } from 'react-router-dom';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const { signInWithEmailPassword, isLoading } = useAuth();
-    console.log(isLoading);
+    const { signInWithEmailPassword, isLoading, authError,user } = useAuth();
+ 
     const location = useLocation();
     const history = useHistory();
 
@@ -20,7 +20,6 @@ const Login = () => {
         const newData = { ...loginData };
         newData[field] = value;
         setLoginData(newData);
-        e.preventDefault();
     }
     const handleRegistrationSubmit = e => {
         signInWithEmailPassword(loginData.email, loginData.password, location, history);
@@ -57,10 +56,20 @@ const Login = () => {
                                     defaultValue="Enter your password"
                                 />
                                 <input className="btn btn-primary btn-style" type="submit" value="Login"/>
-                            </form>
+                          
                             <Link to="/register" className='text-decoration-none cursive'>
                                 <span className='fw-bold text-info me-5'>New User? Please Register</span>
                             </Link>
+                                {isLoading && <div class="spinner-border" style={{ width: "6rem", height: "6rem", role: 'status' }}>
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>}
+                                {user?.email && <div class="alert alert-info" role="alert">
+                                   Login Successfully
+                                </div>}
+                                {authError && <div class="alert alert-info" role="alert">
+                                    {authError}
+                                </div>}
+                            </form>
                         </div>
                         <div className='my-5'>
                             <img src={loginImg} alt="" className='img-fluid' />
