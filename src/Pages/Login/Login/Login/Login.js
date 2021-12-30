@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../../../hooks/useAuth';
 import { useLocation } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import googleImg from '../../../../images/login/gogole.webp';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
@@ -70,7 +71,15 @@ const Login = () => {
                                     {authError}
                                 </div>}
                             </form>
-                        </div>
+                            <div class="col s12 m6 offset-m3 center-align">
+                                <a class="oauth-container btn darken-4 white black-text" href="/users/google-oauth/" style={{textTransform:"none"}}>
+                                    <div class="left">
+                                        <img width="40px" alt="Google sign-in" style={{marginTop:'10px', marginRight:'8px'}}
+                                            src={googleImg}/>
+                                    </div>
+                                </a>
+                            </div>
+                              </div>
                         <div className='my-5'>
                             <img src={loginImg} alt="" className='img-fluid' />
                         </div>

@@ -5,7 +5,6 @@ import userImg from '../../../images/login/user.png'
 
 const LogOut = () => {
 const { user, logout } = useAuth();
-    console.log(user);
     return (
         <div className='container'>
            <div className='profile-main'>
