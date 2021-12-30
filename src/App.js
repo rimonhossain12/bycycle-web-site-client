@@ -11,9 +11,6 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import DashBoard from './Pages/DashBoard/DashBoard/DashBoard';
 import AddProduct from './Pages/DashBoard/AddProduct/AddProduct';
 
-
-
-
 function App() {
   return (
     <div className="App">
