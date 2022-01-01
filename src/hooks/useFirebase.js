@@ -55,6 +55,8 @@ const useFirebase = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
+                const destination = location?.state?.from || '/';
+                history.push(destination);
             }).catch((error) => {
                 setAuthError(error.message);
             });

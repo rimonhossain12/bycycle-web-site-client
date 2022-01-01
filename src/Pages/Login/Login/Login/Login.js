@@ -10,7 +10,7 @@ import googleImg from '../../../../images/login/gogole.webp';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const { signInWithEmailPassword, isLoading, authError,user } = useAuth();
+    const { signInWithEmailPassword, isLoading, authError, user, googleSingIn } = useAuth();
  
     const location = useLocation();
     const history = useHistory();
@@ -27,6 +27,10 @@ const Login = () => {
         e.preventDefault();
     }
 
+    const handleGoogleButton = e => {
+        googleSingIn(location,history);
+        e.preventDefault();
+    }
 
     return (
         <>
@@ -73,7 +77,7 @@ const Login = () => {
                             </form>
                             <div class="col s12 m6 offset-m3 center-align">
                                 <a class="oauth-container btn darken-4 white black-text" href="/users/google-oauth/" style={{textTransform:"none"}}>
-                                    <div class="left">
+                                    <div onClick={handleGoogleButton} class="left">
                                         <img width="40px" alt="Google sign-in" style={{marginTop:'10px', marginRight:'8px'}}
                                             src={googleImg}/>
                                     </div>
