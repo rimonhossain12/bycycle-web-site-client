@@ -1,0 +1,16 @@
+.review-main{
+    height: 350px;
+}
+.review-div{
+      margin: auto;
+      width: 50%;
+      padding: 10px;
+}
+.review-div form{
+    display: flex;
+    flex-direction: column;
+   
+}
+.review-div form input {
+     margin-bottom: 5px;
+}

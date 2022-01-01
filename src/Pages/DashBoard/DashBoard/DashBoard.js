@@ -16,7 +16,6 @@ import './DashBoard.css';
 const DashBoard = () => {
     const { url, path } = useRouteMatch();
     const {admin} = useAuth();
-    console.log('admin found',admin);
     return (
         <div className='dashboard'>
             <Banner />

@@ -8,7 +8,8 @@ const MyOrder = () => {
     const [orders, setOrders] = useState([]);
     const { user } = useAuth();
 
-    const url = `http://localhost:5000/users/${user.email}`
+    const url = `http://localhost:5000/myOrders/${user.email}`
+    console.log(url);
     // console.log('url found', url);
     useEffect(() => {
         fetch(url)
@@ -42,7 +43,7 @@ const MyOrder = () => {
         <div>
             <div style={{ marginLeft: '50px' }} className='mt-3'>
                 <div className="table-responsive">
-                    <h4>Your orders list</h4>
+                    <h4 className='fw-lighter mb-4 text-warning'>Your orders list</h4>
                     <table id="customers">
                         <thead>
                             <tr>

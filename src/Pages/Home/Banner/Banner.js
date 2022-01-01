@@ -34,11 +34,11 @@ const Banner = () => {
                                 <span className='' style={{ color: 'white' }}>DashBoard</span>
                             </Nav.Link>
 
-                            {user.email && <Nav.Link className='nav-style'>
-                                <span className='' style={{ color: 'red' }}>
+                            {/* {user.email && <Nav.Link className='nav-style'>
+                                <span className='' style={{ color: 'white' }}>
                                     loginUser:{user.displayName}
                                 </span>
-                            </Nav.Link>}
+                            </Nav.Link>} */}
 
                             {user.email ? <Nav.Link className='nav-style'>
                                 <button onClick={logout} className='btn btn-primary badge rounded-pill bg-primary btn-style'>Logout</button>
