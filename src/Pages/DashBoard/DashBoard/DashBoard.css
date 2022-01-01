@@ -6,12 +6,13 @@
 .dashboard-container {
     margin-left: 5px;
     margin-right: 15px;
+    /* height: 500px; */
 
 }
 
 .link-div {
     border-right: 1px solid #CCD1D1;
-    height: 100vh;
+    height: 150vh;
 }
 
 .link-div * {

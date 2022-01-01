@@ -3,6 +3,7 @@ import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
 import Banner from '../../Home/Banner/Banner';
 import Footer from '../../Shared/Footer/Footer';
 import LogOut from '../LogOut/LogOut';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import MangeProduct from '../MangeProduct/MangeProduct';
 import MangeAllOrder from '../MangleAllOrder/MangeAllOrder';
 import MyOrder from '../MyOrder/MyOrder';
@@ -44,6 +45,10 @@ const DashBoard = () => {
                                 <i class="fas fa-book-reader"></i>
                                 <Link to={`${url}/mangeProduct`} className='list-style' >Mange Products</Link>
                             </li>
+                            <li>
+                                <i class="fas fa-book-reader"></i>
+                                <Link to={`${url}/makeAdmin`} className='list-style' >MakeAdmin</Link>
+                            </li>
                         </ul>
                     </div>
                     <div className="col-sm-12 col-md-9 col-lg-10 text-start dashboard-link-div">
@@ -66,6 +71,9 @@ const DashBoard = () => {
                                 </Route>
                                 <Route path={`${path}/mangeProduct`}>
                                     <MangeProduct />
+                                </Route>
+                                <Route path={`${path}/makeAdmin`}>
+                                    <MakeAdmin />
                                 </Route>
                             </Switch>
                         </div>

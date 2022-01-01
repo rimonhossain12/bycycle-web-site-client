@@ -55,6 +55,7 @@ const useFirebase = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
+                saveUser(user.email,user.displayName,'PUT');
                 const destination = location?.state?.from || '/';
                 history.push(destination);
             }).catch((error) => {
@@ -87,7 +88,6 @@ const useFirebase = () => {
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName }
         console.log('user send', user);
-        console.log('making user', user);
         fetch('http://localhost:5000/users', {
             method: method,
             headers: {
@@ -99,6 +99,10 @@ const useFirebase = () => {
             .then(data => {
             })
     }
+    // make admin api
+    // fetch('http://localhost:5000/users/',async(req,res) => {
+        
+    // })
     return {
         registerUser,
         user,
