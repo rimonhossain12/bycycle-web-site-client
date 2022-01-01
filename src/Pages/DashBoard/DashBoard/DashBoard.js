@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import Banner from '../../Home/Banner/Banner';
+import AdminRoute from '../../Login/AmdinRoute/AdminRoute';
 import Footer from '../../Shared/Footer/Footer';
 import LogOut from '../LogOut/LogOut';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
@@ -70,15 +71,15 @@ const DashBoard = () => {
                                 <Route path={`${path}/review`}>
                                     <Review />
                                 </Route>
-                                <Route path={`${path}/mangeOrder`}>
+                                <AdminRoute path={`${path}/mangeOrder`}>
                                     <MangeAllOrder />
-                                </Route>
-                                <Route path={`${path}/mangeProduct`}>
+                                </AdminRoute>
+                                <AdminRoute path={`${path}/mangeProduct`}>
                                     <MangeProduct />
-                                </Route>
-                                <Route path={`${path}/makeAdmin`}>
+                                </AdminRoute>
+                                <AdminRoute path={`${path}/makeAdmin`}>
                                     <MakeAdmin />
-                                </Route>
+                                </AdminRoute>
                             </Switch>
                         </div>
                     </div>
