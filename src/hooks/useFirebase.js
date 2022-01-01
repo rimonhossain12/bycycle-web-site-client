@@ -9,6 +9,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
+    const [admin, setAdmin] = useState(false);
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
@@ -55,7 +56,7 @@ const useFirebase = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
-                saveUser(user.email,user.displayName,'PUT');
+                saveUser(user.email, user.displayName, 'PUT');
                 const destination = location?.state?.from || '/';
                 history.push(destination);
             }).catch((error) => {
@@ -72,6 +73,17 @@ const useFirebase = () => {
 
         }).finally(() => setIsLoading(false));
     }
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => {
+                // console.log('admin data',data.admin);
+                setAdmin(data.admin)
+            })
+    }, [user.email])
+
+    // console.log('admin resutl',admin);
     // observed user login or not out
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -99,13 +111,11 @@ const useFirebase = () => {
             .then(data => {
             })
     }
-    // make admin api
-    // fetch('http://localhost:5000/users/',async(req,res) => {
-        
-    // })
+
     return {
         registerUser,
         user,
+        admin,
         googleSingIn,
         signInWithEmailPassword,
         logout,

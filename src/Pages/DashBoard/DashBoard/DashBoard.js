@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import Banner from '../../Home/Banner/Banner';
 import Footer from '../../Shared/Footer/Footer';
 import LogOut from '../LogOut/LogOut';
@@ -13,6 +14,8 @@ import './DashBoard.css';
 
 const DashBoard = () => {
     const { url, path } = useRouteMatch();
+    const {admin} = useAuth();
+    console.log('admin found',admin);
     return (
         <div className='dashboard'>
             <Banner />
@@ -37,28 +40,29 @@ const DashBoard = () => {
                                 <i class="far fa-comment-dots"></i>
                                 <Link to={`${url}/review`} className='list-style' >Review</Link>
                             </li>
-                            <li>
-                                <i class="fas fa-th-list"></i>
-                                <Link to={`${url}/mangeOrder`} className='list-style' >Mange Order</Link>
-                            </li>
-                            <li>
-                                <i class="fas fa-book-reader"></i>
-                                <Link to={`${url}/mangeProduct`} className='list-style' >Mange Products</Link>
-                            </li>
-                            <li>
-                                <i class="fas fa-book-reader"></i>
-                                <Link to={`${url}/makeAdmin`} className='list-style' >MakeAdmin</Link>
-                            </li>
+                            {admin && <div>
+                                <li>
+                                    <i class="fas fa-th-list"></i>
+                                    <Link to={`${url}/mangeOrder`} className='list-style' >Mange Order</Link>
+                                </li>
+                                <li>
+                                    <i class="fas fa-book-reader"></i>
+                                    <Link to={`${url}/mangeProduct`} className='list-style' >Mange Products</Link>
+                                </li>
+                                <li>
+                                    <i class="fas fa-book-reader"></i>
+                                    <Link to={`${url}/makeAdmin`} className='list-style' >MakeAdmin</Link>
+                                </li></div>}
                         </ul>
                     </div>
                     <div className="col-sm-12 col-md-9 col-lg-10 text-start dashboard-link-div">
                         <div>
                             <Switch>
                                 <Route exact path={path}>
-                                    <LogOut/>
+                                    <LogOut />
                                 </Route>
                                 <Route path={`${path}/myOrder`}>
-                                   <MyOrder/>
+                                    <MyOrder />
                                 </Route>
                                 <Route path={`${path}/payment`}>
                                     <Payment />
