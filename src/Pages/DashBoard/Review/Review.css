@@ -1,5 +1,5 @@
 .review-main{
-    height: 350px;
+    height: 400px;
 }
 .review-div{
       margin: auto;
@@ -13,4 +13,8 @@
 }
 .review-div form input {
      margin-bottom: 5px;
+}
+.review-div form textarea {
+   height: 100px;
+   margin-bottom: 5px;
 }
