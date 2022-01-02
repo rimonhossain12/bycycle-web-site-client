@@ -19,9 +19,9 @@ const DashBoard = () => {
     return (
         <div className='dashboard'>
             <Banner />
-            <div class="dashboard-container">
+        <div class="dashboard-container">
                 <div class="row">
-                    <div class="col-sm-12 col-md-3 col-lg-2 text-start link-div dashboard-link">
+                    <div class="col-sm-12 col-md-6 col-lg-3 text-start link-div dashboard-link">
                         <h6 className='text-uppercase fw-bold mt-2 text-center'>User Dashboard</h6>
                         <ul>
                             <li>
@@ -55,7 +55,7 @@ const DashBoard = () => {
                                 </li></div>}
                         </ul>
                     </div>
-                    <div className="col-sm-12 col-md-9 col-lg-10 text-start dashboard-link-div">
+                    <div className="col-sm-12 col-md-6 col-lg-9 text-start dashboard-link-div">
                         <div>
                             <Switch>
                                 <Route exact path={path}>

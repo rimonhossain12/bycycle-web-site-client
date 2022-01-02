@@ -2,30 +2,52 @@ import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import ReactStars from "react-rating-stars-component";
 import useAuth from '../../../hooks/useAuth';
+import { useForm } from "react-hook-form";
+
 
 import './Review.css';
 
 const Review = () => {
-    const {user} = useAuth();
+    const { user } = useAuth();
     const [reviewCount, setReviewCount] = useState(0);
+    const { register, handleSubmit } = useForm();
+    // const [review,setReview] = useState({});
     const ratingChanged = (newRating) => {
         setReviewCount(newRating);
-        console.log(newRating);
+    };
+
+    const onSubmit = data => {
+        fetch('http://localhost:5000//user/review',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.insertedId){
+                alert('thanks! for your review');
+            }
+        })
     };
 
     return (
         <div className='review-main'>
             <div className='review-div'>
                 <h2 className='fw-bold mb-4 mt-4 mb-0'>Give A Feedback</h2>
-                <form action="">
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <Row xs={1} md={1} lg={2} className="g-4 text-start">
                         <Col className='mt-5'>
-                            <span className='fs-6 fw-bold'>Your Name</span>
-                            <input className='form-control w-100' value={user.displayName} type="text" />
+                            <span className='fs-6 fw-bold mb-1' >Your Name</span>
+                            {/* <input className='form-control w-100' name='userName' onBlur={handleOnBlur} value={user.displayName} type="text" /> */}
+                            <input {...register("userName")} value={user.displayName || ' '} className='form-control w-100' />
+                            <span>Rating</span>
+                            <input {...register("rating")} value={reviewCount} className='form-control w-100' />
                         </Col>
                         <Col>
                             <span className='mb-0 fs-6 fw-bold'>Your Raging: {reviewCount}</span>
-                            <p>                              
+                            <p>
                                 <ReactStars
                                     count={5}
                                     onChange={ratingChanged}
@@ -34,15 +56,17 @@ const Review = () => {
                                     emptyIcon={<i className="far fa-star"></i>}
                                     halfIcon={<i className="fa fa-star-half-alt"></i>}
                                     fullIcon={<i className="fa fa-star"></i>}
-                                    activeColor="#ffd700" />                
-                            </p>                               
+                                    activeColor="#ffd700" />
+                            </p>
                         </Col>
                     </Row>
-                    <span className='fw-bold fs-6 mt-2'>Your Address</span>
-                    <input type="text" placeholder='your address' className='form-control w-100' />
 
+                    <span className='fw-bold fs-6 mt-2 mb-1'>Your Address</span>
+                    <input {...register("address")} placeholder='Enter your address' className='form-control w-100' />
                     <span className='fw-bold fs-6 mt-2'>Description</span>
-                    <textarea type="text" placeholder='your address' className='form-control w-100' />
+                    <textarea {...register("description")} placeholder='Write your description' className='form-control w-100' />
+                    <input type="submit" />
+                    {/* <button type='submit' style={{ width: '40%' }} className='btn btn-primary mt-2 fw-normal'>submit</button> */}
                 </form>
             </div>
 
