@@ -21,7 +21,7 @@ const DashBoard = () => {
             <Banner />
         <div class="dashboard-container">
                 <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-3 text-start link-div dashboard-link">
+                    <div class="col-sm-12 col-md-6 col-lg-3 text-secondary text-start link-div dashboard-link"/*  style={{backgroundColor:'gray',color:'white'}} */>
                         <h6 className='text-uppercase fw-bold mt-2 text-center'>User Dashboard</h6>
                         <ul>
                             <li>

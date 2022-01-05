@@ -9,15 +9,23 @@ import './Review.css';
 
 const Review = () => {
     const { user } = useAuth();
-    const [reviewCount, setReviewCount] = useState(0);
+    const [reviewCount, setReviewCount] = useState([]);
+    // const star = 0;
     const { register, handleSubmit } = useForm();
     // const [review,setReview] = useState({});
     const ratingChanged = (newRating) => {
+        // star = newRating;
         setReviewCount(newRating);
     };
 
+    // const handleReviewCount = e => {
+    //     console.log('review changes',e.target.value);
+    //     setReviewCount(e.target.value);
+    // }
+    // console.log('rating = ',star);
     const onSubmit = data => {
-        fetch('http://localhost:5000//user/review',{
+        console.log('user review',data);
+        fetch('http://localhost:5000/user/review',{
             method:'POST',
             headers:{
                 'content-type':'application/json'
@@ -43,7 +51,7 @@ const Review = () => {
                             {/* <input className='form-control w-100' name='userName' onBlur={handleOnBlur} value={user.displayName} type="text" /> */}
                             <input {...register("userName")} value={user.displayName || ' '} className='form-control w-100' />
                             <span>Rating</span>
-                            <input {...register("rating")} value={reviewCount} className='form-control w-100' />
+                            <input required {...register("rating")} value={reviewCount} /* onChange={handleReviewCount} */ className='form-control w-100' />
                         </Col>
                         <Col>
                             <span className='mb-0 fs-6 fw-bold'>Your Raging: {reviewCount}</span>
@@ -62,11 +70,10 @@ const Review = () => {
                     </Row>
 
                     <span className='fw-bold fs-6 mt-2 mb-1'>Your Address</span>
-                    <input {...register("address")} placeholder='Enter your address' className='form-control w-100' />
+                    <input required {...register("address")} placeholder='Enter your address' className='form-control w-100' />
                     <span className='fw-bold fs-6 mt-2'>Description</span>
                     <textarea {...register("description")} placeholder='Write your description' className='form-control w-100' />
-                    <input type="submit" />
-                    {/* <button type='submit' style={{ width: '40%' }} className='btn btn-primary mt-2 fw-normal'>submit</button> */}
+                    <input type="submit" className='btn-primary' />
                 </form>
             </div>
 
