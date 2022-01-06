@@ -40,16 +40,19 @@
 .list-style li {
     list-style-type: none;
     color: white;
-    font-size: 18px;
-    font-family:monospace;
+    font-size: 16px;
+    font-family: 'Open Sans',
+        'sans-serif';
 }
-.list-style li:hover{
-    color:rgba(218, 165, 32, 0.63);
+
+.list-style li:hover {
+    color: rgba(218, 165, 32, 0.63);
     cursor: pointer;
 }
-#footer-para{
-    margin:5px 10px;
-    color:white;
+
+#footer-para {
+    margin: 5px 10px;
+    color: white;
     font-size: 1.2rem;
     font-family: cursive;
 }
