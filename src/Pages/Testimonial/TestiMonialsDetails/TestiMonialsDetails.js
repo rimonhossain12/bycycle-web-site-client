@@ -10,7 +10,7 @@ const TestiMonialsDetails = ({ review }) => {
 
     return (
         <Col>
-            <Card>
+            <Card className='testimonial-div-height'>
                 <Card.Img variant="top" src={testimonialImg} className='w-25 mx-auto mt-2'
                 />
                 <Card.Body>

@@ -12,7 +12,7 @@ const Review = () => {
 
     const onSubmit = data => {
         console.log('user review', data);
-        fetch('http://localhost:5000/user/review', {
+        fetch('https://shrouded-taiga-93469.herokuapp.com/user/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

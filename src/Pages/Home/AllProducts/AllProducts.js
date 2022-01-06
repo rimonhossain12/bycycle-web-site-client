@@ -6,13 +6,12 @@ import Footer from '../../Shared/Footer/Footer';
 import Banner from '../Banner/Banner';
 import useAuth from '../../../hooks/useAuth';
 
-
 const AllProducts = () => {
     const [products, setProducts] = useState([]);
     const { isLoading } = useAuth();
-
+    
     useEffect(() => {
-        fetch('http://localhost:5000/allProducts')
+        fetch('https://shrouded-taiga-93469.herokuapp.com/allProducts')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])

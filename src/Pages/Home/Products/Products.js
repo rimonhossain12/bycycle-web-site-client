@@ -12,7 +12,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
     const { isLoading } = useAuth();
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://shrouded-taiga-93469.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])
