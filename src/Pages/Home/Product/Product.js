@@ -10,7 +10,7 @@ import { Row } from 'react-bootstrap';
 
 const Product = () => {
     return (
-        <div className='container mt-5 mb-5 text-secondary'>
+        <div className='container mt-5 mb-5 text-info'>
             <h2>
                 <Zoom bottom cascade>
                     Our best bicycle collection samples
