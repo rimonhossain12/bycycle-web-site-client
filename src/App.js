@@ -10,6 +10,7 @@ import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import DashBoard from './Pages/DashBoard/DashBoard/DashBoard';
 import AddProduct from './Pages/DashBoard/AddProduct/AddProduct';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
             <PrivateRoute path="/dashboard">
               <DashBoard />
             </PrivateRoute>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
           </Switch>
         </Router>
       </AuthProvider>
