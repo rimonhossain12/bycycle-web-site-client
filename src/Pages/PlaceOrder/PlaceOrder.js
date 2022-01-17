@@ -21,12 +21,21 @@ const PlaceOrder = () => {
 
     const onSubmit = data => {
         console.log(data);
+        const orders = {
+            ...data,
+            name: singleProduct.name,
+            img: singleProduct.img,
+            price:singleProduct.price,
+            
+        }
+        console.log('order', orders);
         fetch('https://shrouded-taiga-93469.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(data)
+            // console.log('or')
+            body: JSON.stringify(orders)
         })
             .then(res => res.json())
             .then(data => {
@@ -55,7 +64,7 @@ const PlaceOrder = () => {
                                         <h5 className="fw-lighter" style={{ color: '#22789A' }}>{singleProduct.name}</h5>
                                         <h6 className="fw-normal" style={{ color: '#05445D' }}>${singleProduct.price}</h6>
                                         <p className='fw-normal text-center'>{singleProduct.description}</p>
-                                        <span>{singleProduct.img}</span>
+                                        {/* <span>{singleProduct.img}</span> */}
                                     </div>
                                 </div>
                             </div>
@@ -66,9 +75,9 @@ const PlaceOrder = () => {
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <input {...register("email")} value={user.email} />
                                     <input {...register("userName")} value={user.displayName} />
-                                    <input {...register("productName")} placeholder='product Name' />
-                                    <input {...register("price")} placeholder='product price' />
-                                    <input {...register("img")} placeholder='img url' />
+                                    {/* <input {...register("productName")} placeholder='product Name' />
+                                    <input {...register("price")} placeholder='product price' /> */}
+                                    {/* <input {...register("img")} placeholder='img url' /> */}
                                     <input {...register("location")} placeholder='your address' />
                                     <input {...register("phone")} placeholder='your phone number' />
                                     <input type="submit" value='submit' />
