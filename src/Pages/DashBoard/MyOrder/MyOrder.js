@@ -3,22 +3,36 @@ import { useEffect, useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import './MyOrder.css';
 import { MdDelete } from "react-icons/md";
+import { useHistory } from 'react-router-dom';
 
 const MyOrder = () => {
     const [orders, setOrders] = useState([]);
     const { user } = useAuth();
+    const history = useHistory()
 
-    const url = `https://shrouded-taiga-93469.herokuapp.com/myOrders/${user.email}`
-    console.log(url);
-    // console.log('url found', url);
+    // const url = `https://shrouded-taiga-93469.herokuapp.com/myOrders/${user.email}`
+    const url = `http://localhost:5000/myOrders/${user.email}`
+
     useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
+        fetch(url,{
+            headers:{
+                'authorization': `Bearer sfsfsdf${localStorage.getItem('idToken')}`
+            }
+        })
+            .then(res => {
+                // res.json()
+                if(res.status === 200){
+                    return res.json();
+                }
+                else if(res.status === 401){
+                    history.push('/login');
+                }
+            })
             .then(data => {
                 // console.log(data);
                 setOrders(data)
             })
-    }, [url, user.email]);
+    }, [history,url]);
 
     const handleCancelButton = (id) => {
         const isTrue = window.confirm('Are you sure? You want to delete order?');
