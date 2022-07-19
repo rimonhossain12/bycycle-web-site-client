@@ -14,17 +14,16 @@ const MyOrder = () => {
     const url = `http://localhost:5000/myOrders/${user.email}`
 
     useEffect(() => {
-        fetch(url,{
-            headers:{
-                'authorization': `Bearer sfsfsdf${localStorage.getItem('idToken')}`
+        fetch(url, {
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('idToken')}`
             }
         })
             .then(res => {
-                // res.json()
-                if(res.status === 200){
+                if (res.status === 200) {
                     return res.json();
                 }
-                else if(res.status === 401){
+                else if (res.status === 401) {
                     history.push('/login');
                 }
             })
@@ -32,7 +31,7 @@ const MyOrder = () => {
                 // console.log(data);
                 setOrders(data)
             })
-    }, [history,url]);
+    }, [history, url]);
 
     const handleCancelButton = (id) => {
         const isTrue = window.confirm('Are you sure? You want to delete order?');
