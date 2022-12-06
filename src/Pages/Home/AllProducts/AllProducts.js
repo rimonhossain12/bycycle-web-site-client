@@ -11,7 +11,7 @@ const AllProducts = () => {
     const { isLoading } = useAuth();
     
     useEffect(() => {
-        fetch('https://shrouded-taiga-93469.herokuapp.com/allProducts')
+        fetch('https://cycle-server.onrender.com/allProducts')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])

@@ -9,7 +9,7 @@ import Zoom from 'react-reveal/Zoom';
 const Testimonials = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('https://shrouded-taiga-93469.herokuapp.com/client/review')
+        fetch('https://cycle-server.onrender.com/client/review')
             .then(res => res.json())
             .then(data => setReviews(data));
     }, [])

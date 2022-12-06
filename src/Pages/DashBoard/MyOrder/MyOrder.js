@@ -10,7 +10,7 @@ const MyOrder = () => {
     const { user } = useAuth();
     const history = useHistory()
 
-    // const url = `https://shrouded-taiga-93469.herokuapp.com/myOrders/${user.email}`
+    // const url = `https://cycle-server.onrender.com/myOrders/${user.email}`
     const url = `http://localhost:5000/myOrders/${user.email}`
 
     useEffect(() => {
@@ -36,7 +36,7 @@ const MyOrder = () => {
     const handleCancelButton = (id) => {
         const isTrue = window.confirm('Are you sure? You want to delete order?');
         if (isTrue) {
-            const url = `https://shrouded-taiga-93469.herokuapp.com/orders/${id}`;
+            const url = `https://cycle-server.onrender.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE',
                 headers: {

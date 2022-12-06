@@ -6,7 +6,7 @@ const AddProduct = () => {
     const { register, handleSubmit,reset } = useForm();
     const onSubmit = data => {
         console.log('input data',data);
-        fetch('https://shrouded-taiga-93469.herokuapp.com/Cycle',{
+        fetch('https://cycle-server.onrender.com/Cycle',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

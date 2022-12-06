@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import LoadProducts from '../LoadProducts/LoadProducts';
 
-
+//https://shrouded-taiga-93469.herokuapp.com
 
 const Products = () => {
     const [products, setProducts] = useState([]);
     const { isLoading } = useAuth();
     useEffect(() => {
-        fetch('https://shrouded-taiga-93469.herokuapp.com/products')
+        fetch('https://cycle-server.onrender.com/products')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])

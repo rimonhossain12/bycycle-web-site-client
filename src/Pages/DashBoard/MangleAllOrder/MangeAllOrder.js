@@ -7,7 +7,7 @@ const MangeAllOrder = () => {
     const [allOrders,setOrders] = useState([]);
 
     useEffect( () => {
-        fetch('https://shrouded-taiga-93469.herokuapp.com/allOrders')
+        fetch('https://cycle-server.onrender.com/allOrders')
         .then(res => res.json())
         .then(data => setOrders(data))
     } ,[])
@@ -15,7 +15,7 @@ const MangeAllOrder = () => {
     const handleCancelButton = (id) => {
         const isTrue = window.confirm('Are you sure? You want to delete order?');
         if (isTrue) {
-            const url = `https://shrouded-taiga-93469.herokuapp.com/orders/${id}`;
+            const url = `https://cycle-server.onrender.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE',
                 headers: {

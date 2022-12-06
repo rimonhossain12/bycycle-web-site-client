@@ -14,7 +14,7 @@ const PlaceOrder = () => {
     const { productId } = useParams();
     const { register, handleSubmit,reset } = useForm();
     useEffect(() => {
-        fetch(`https://shrouded-taiga-93469.herokuapp.com/products/${productId}`)
+        fetch(`https://cycle-server.onrender.com/products/${productId}`)
             .then(res => res.json())
             .then(data => setSingleProduct(data));
     }, [productId]);
@@ -29,7 +29,7 @@ const PlaceOrder = () => {
             
         }
         console.log('order', orders);
-        fetch('https://shrouded-taiga-93469.herokuapp.com/orders', {
+        fetch('https://cycle-server.onrender.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

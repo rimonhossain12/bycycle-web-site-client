@@ -47,10 +47,6 @@ const DashBoard = () => {
                                 </li>
                                 <li>
                                     <i class="fas fa-book-reader"></i>
-                                    <Link to={`${url}/mangeProduct`} className='list-style' >Mange Products</Link>
-                                </li>
-                                <li>
-                                    <i class="fas fa-book-reader"></i>
                                     <Link to={`${url}/makeAdmin`} className='list-style' >MakeAdmin</Link>
                                 </li></div>}
                         </ul>
@@ -70,9 +66,9 @@ const DashBoard = () => {
                                 <Route path={`${path}/review`}>
                                     <Review />
                                 </Route>
-                                <AdminRoute path={`${path}/mangeOrder`}>
+                                <Route path={`${path}/mangeOrder`}>
                                     <MangeAllOrder />
-                                </AdminRoute>
+                                </Route>
                                 <AdminRoute path={`${path}/mangeProduct`}>
                                     <MangeProduct />
                                 </AdminRoute>

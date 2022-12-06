@@ -75,10 +75,11 @@ const useFirebase = () => {
     }
 
     useEffect(() => {
-        fetch(`https://shrouded-taiga-93469.herokuapp.com/users/${user.email}`)
+        // fetch(`https://cycle-server.onrender.com/users/${user.email}`)
+        fetch(`http://localhost:5000/users/${user.email}`)
             .then(res => res.json())
             .then(data => {
-                // console.log('admin data',data.admin);
+                console.log('admin data',data.admin);
                 setAdmin(data.admin)
             })
     }, [user.email])
@@ -101,8 +102,8 @@ const useFirebase = () => {
     // save user to the database
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName }
-        console.log('user send', user);
-        fetch('https://shrouded-taiga-93469.herokuapp.com/users', {
+        // console.log('user send', user);
+        fetch('https://cycle-server.onrender.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

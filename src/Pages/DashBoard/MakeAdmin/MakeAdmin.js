@@ -5,7 +5,7 @@ import './MakeAdmin.css';
 const MakeAdmin = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch('https://shrouded-taiga-93469.herokuapp.com/makeAdmin',{
+        fetch('https://cycle-server.onrender.com/makeAdmin',{
             method:'PUT',
             headers:{
                 'content-type':'application/json'
