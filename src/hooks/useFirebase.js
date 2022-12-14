@@ -75,8 +75,8 @@ const useFirebase = () => {
     }
 
     useEffect(() => {
-        // fetch(`https://cycle-server.onrender.com/users/${user.email}`)
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`https://cycle-server.onrender.com/users/${user.email}`)
+        // fetch(`http://localhost:5000/users/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log('admin data',data.admin);
