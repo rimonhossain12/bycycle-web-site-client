@@ -50,7 +50,6 @@ const Login = () => {
                                     name="email"
                                     onBlur={handleOnBlur}
                                     placeholder='Enter your email'
-                                    defaultValue='Enter your email'
                                 />
                                 <input
                                     className='form-control'
@@ -58,7 +57,6 @@ const Login = () => {
                                     name="password"
                                     onBlur={handleOnBlur}
                                     placeholder='Enter your password'
-                                    defaultValue="Enter your password"
                                 />
                                 <input className="btn btn-primary btn-style" type="submit" value="Login"/>
                           

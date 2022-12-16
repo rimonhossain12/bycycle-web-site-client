@@ -40,7 +40,6 @@ const Register = () => {
                         name="name"
                         onBlur={handleOnBlur}
                         placeholder='Enter your Name'
-                        defaultValue='Enter your Name'
                     />
                     <input
                         className='form-control'
@@ -48,15 +47,13 @@ const Register = () => {
                         name="email"
                         onBlur={handleOnBlur}
                         placeholder='Enter your email' 
-                        defaultValue='Enter your email'
                         />
                     <input
                         className='form-control'
                         type="password"
                         name="password"
                         onBlur={handleOnBlur}
-                        placeholder='Type a hard password'
-                        defaultValue="Type a hard password"
+                        placeholder='Type a complex password'
                          />
                     <input
                         className='form-control'
@@ -64,7 +61,6 @@ const Register = () => {
                         name="password2"
                         onBlur={handleOnBlur}
                         placeholder='ReType your password'
-                        defaultValue='ReType your password'
                          />
 
                     <input className="btn btn-primary btn-style" type="submit" />
